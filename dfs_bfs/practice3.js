@@ -9,7 +9,6 @@ let input = fs
 
 const [N, K] = input[0].split(" ").map(Number);
 const arr = input.slice(1, N + 1).map((el) => el.split(" ").map(Number));
-const newArr = Array.from(Array(N), () => Array(N).fill(0));
 const [S, X, Y] = input[N + 1].split(" ").map(Number);
 
 function solution(N, K, S, X, Y, arr) {
@@ -32,8 +31,7 @@ function solution(N, K, S, X, Y, arr) {
     // 각 바이러스 번호
     let k = 1;
     while (k < K + 1) {
-      outer:
-      for (let i = 0; i < N; i++) {
+      outer: for (let i = 0; i < N; i++) {
         for (let j = 0; j < N; j++) {
           if (arr[i][j] === k) {
             virus(i, j, k);
